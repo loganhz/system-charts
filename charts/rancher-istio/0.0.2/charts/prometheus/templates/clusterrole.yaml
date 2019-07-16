@@ -15,12 +15,7 @@ rules:
   - services
   - endpoints
   - pods
-  - nodes/proxy
-  verbs: ["get", "list", "watch"]
-- apiGroups: [""]
-  resources:
-  - configmaps
-  verbs: ["get"]
+  verbs: ["list", "watch"]
 - nonResourceURLs: ["/metrics"]
   verbs: ["get"]
 {{- end -}}
