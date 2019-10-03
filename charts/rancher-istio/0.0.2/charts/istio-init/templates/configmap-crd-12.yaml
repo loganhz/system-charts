@@ -3,6 +3,10 @@ kind: ConfigMap
 metadata:
   namespace: {{ .Release.Namespace }}
   name: istio-crd-12
+  annotations:
+    "helm.sh/hook": post-install, post-upgrade
+    "helm.sh/hook-delete-policy": hook-succeeded
+    "helm.sh/hook-weight": "-6"
 data:
   crd-12.yaml: |-
 {{.Files.Get "files/crd-12.yaml" | printf "%s" | indent 4}}
